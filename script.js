@@ -45,7 +45,7 @@ const displayPosts = posts => {
                         <p class="space-x-2"><i class="fa-regular fa-clock "></i> <span>${post.posted_time} min</span></p>
                     </div>
                     <div class="flex justify-center items-center bg-green-400 rounded-full px-2 py-1">
-                        <button onclick="handleRead('${post.title}', ${post.comment_count})"><i class="fa-regular fa-envelope"></i></button>
+                        <button onclick="handleRead('${post.title.replace("'", "")}', ${post.comment_count})"><i class="fa-regular fa-envelope"></i></button>
                     </div>
                 </div>
             </div>
@@ -60,12 +60,10 @@ const displayPosts = posts => {
 
 
 
-
-
 let counter = 0;
 
 const handleRead = (title, commentCount) => {
-    
+    console.log(title, commentCount);
     counter ++
 
     const markRead = document.getElementById('mark-as-read');
@@ -103,10 +101,6 @@ const handleRead = (title, commentCount) => {
 
 
 
-
-
-
-
 const handleSearch = () => {
     toggleLoadingSpinner(true);
     const searchField = document.getElementById('search-field')
@@ -120,8 +114,6 @@ const handleSearch = () => {
     }
 
 }
-
-
 
 
 
@@ -141,10 +133,6 @@ const toggleLoadingSpinner = (isLoading) => {
 
 
 
-
-
-
-
 const latestPost = async () => {
     const response = await fetch("https://openapi.programming-hero.com/api/retro-forum/latest-posts")
     const data = await response.json();
@@ -161,7 +149,7 @@ const latestPost = async () => {
                         <i class="fa-regular fa-calendar"></i>
                         <p>${item.author.posted_date ? item.author.posted_date : 'No Publish Date'}</p>
                     </div>
-                    <h1 class="font-bold text-lg">${item.title.slice(0, 30)}</h1>
+                    <h1 class="font-bold text-lg">${item.title}</h1>
                     <p class="text-[#858383]">${item.description}
                     </p>
                     <div class="flex gap-5">
