@@ -23,13 +23,13 @@ const displayPosts = posts => {
         
             <div class="">
                <div class="w-[50px] h-[50px] relative">
-               <div class="w-[10px] h-[10px] bg-green-600 absolute left-10 top-1 rounded-full ${post.isActive ? '' : 'hidden'}"></div>
+               <div class="w-[10px] h-[10px] absolute left-10 top-1 rounded-full ${post.isActive ? 'bg-green-600' : 'bg-red-600'}"></div>
                   <img class="rounded-full" src="${post.image}" alt="">
                </div>
             </div>
             <div class="space-y-3">
                 <div class="flex gap-5 font-semibold">
-                    <p>${post.id} ${post.category}</p>
+                    <p># ${post.category}</p>
                     <p>Author : ${post.author.name}</p>
                 </div>
 
@@ -130,7 +130,9 @@ const toggleLoadingSpinner = (isLoading) => {
     }
     else {
 
-        loadingSpinner.classList.add('hidden');
+        setTimeout(() => {
+            loadingSpinner.classList.add('hidden');
+        }, 2000);
     }
 }
 
@@ -159,7 +161,7 @@ const latestPost = async () => {
                         <div class="h-[40px] w-[40px] bg-[#726c6c] rounded-full"><img class="rounded-full" src="${item.profile_image}" alt=""></div>
                         <div>
                             <h4 class="font-bold">${item.author.name}</h4>
-                            <p class="text-[#858383]">${item.author.posted_date ? item.author.posted_date : 'No Publish Date'}</p>
+                            <p class="text-[#858383]">${item.author.designation ? item.author.designation : 'Unknown'}</p>
                         </div>
                     </div>
                 
