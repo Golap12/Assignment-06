@@ -111,8 +111,9 @@
                     features allow for a streamlined .</p>
             </div>
 
-            <div id="loading" class="mt-40 text-center hidden">
+            <div id="loading" class="mt-40 text-center hidden ">
                 <span class="loading loading-bars loading-lg"></span>
+                <!-- Dom Element  -->
             </div>
 
             <div class="lg:flex gap-5 justify-between">
@@ -128,14 +129,18 @@
 
                         <div class="flex items-center justify-between">
                             <h1 class="font-bold text-lg">Title</h1>
+                            
                             <div class="flex gap-2 justify-center items-center">
                                 <img src="./images/Frame.png" alt="">
-                                <p>Mark as read (4)</p>
+                                <p>Mark as read (<span id="count">0</span>)</p>
                             </div>
                         </div>
     
                         <div id="mark-as-read" class="space-y-5">
-                            
+                            <!-- Dom Element -->
+                        </div>
+                        <div id="clear" class="text-center hidden">
+                            <button id="click" class="text-sm font-semibold py-1 px-2 rounded-full text-white bg-green-600">Clear</button>
                         </div>
     
                     </div>

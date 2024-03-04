@@ -17,7 +17,7 @@ const displayPosts = posts => {
 
 
         const div = document.createElement("div")
-        div.classList.add('flex', 'gap-5', 'lg:p-10', 'p-2', 'border-blue-500', 'border', 'rounded-3xl', 'bg-[#12132d0c]')
+        div.classList.add('flex', 'gap-5', 'lg:p-10', 'p-2', 'border-blue-500', 'border', 'rounded-3xl', 'bg-[#12132d0c],')
         div.innerHTML = `
         
             <div class="">
@@ -62,23 +62,42 @@ const displayPosts = posts => {
 
 
 
+let counter = 0;
 
 const handleRead = (title, commentCount) => {
+    
+    counter ++
 
     const markRead = document.getElementById('mark-as-read');
+    const clearDiv = document.getElementById('clear');
+    const clearButton = document.getElementById('click');
+    let counterNumber = document.getElementById('count')
+
+
+    counterNumber.innerText = counter;
 
     const div2 = document.createElement("div");
     div2.classList.add('flex', 'justify-between', 'items-center', 'bg-white', 'p-3', 'rounded-2xl');
     div2.innerHTML = `
-    
-    <p class="font-medium">${title}</p>
-    <div class="flex justify-center items-center gap-2">
-        <i class="fa-regular fa-eye "></i>
-        <p class="space-x-1 text-[#868585]">${commentCount}</p>
-    </div>
-
-    `
+        <p class="font-medium">${title}</p>
+        <div class="flex justify-center items-center gap-2">
+            <i class="fa-regular fa-eye "></i>
+            <p class="space-x-1 text-[#868585]">${commentCount}</p>
+        </div>
+    `;
     markRead.appendChild(div2);
+
+    if (markRead.children.length > 0) {
+        clearDiv.classList.remove('hidden');
+    }
+
+    clearButton.addEventListener('click', () => {
+        markRead.innerHTML = '';
+        clearDiv.classList.add('hidden');
+
+        counter = 0;
+        counterNumber.innerText = counter;
+    });
 }
 
 
@@ -159,13 +178,6 @@ const latestPost = async () => {
     })
 
 }
-
-
-
-
-
-
-
 
 
 
