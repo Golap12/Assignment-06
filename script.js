@@ -23,12 +23,12 @@ const displayPosts = posts => {
         
             <div class="">
                <div class="w-[50px] h-[50px] relative">
-               <div class="w-[10px] h-[10px] absolute left-10 top-1 rounded-full ${post.isActive ? 'bg-green-600' : 'bg-red-600'}"></div>
+                  <div class="w-[10px] h-[10px] absolute left-10 top-1 rounded-full border-2 ${post.isActive ? 'bg-green-600' : 'bg-red-600'}"></div>
                   <img class="rounded-full" src="${post.image}" alt="">
                </div>
             </div>
             <div class="space-y-3">
-                <div class="flex gap-5 font-semibold">
+                <div class="flex flex-wrap gap-2 lg:gap-5 font-semibold">
                     <p># ${post.category}</p>
                     <p>Author : ${post.author.name}</p>
                 </div>
@@ -43,10 +43,10 @@ const displayPosts = posts => {
                 <hr class="border-dashed border-2">
 
                 <div class="flex justify-between lg:text-lg">
-                     <div class="flex gap-6 text-[#868585]">
-                        <p class="space-x-2"><i class="fa-regular fa-message "></i> <span>${post.comment_count}</span></p>
-                        <p class="space-x-2"><i class="fa-regular fa-eye "></i> <span>${post.view_count}</span></p>
-                        <p class="space-x-2"><i class="fa-regular fa-clock "></i> <span>${post.posted_time} min</span></p>
+                     <div class="flex gap-3 lg:gap-6 text-[#868585]">
+                        <p class="lg:space-x-1"><i class="fa-regular fa-message "></i> <span>${post.comment_count}</span></p>
+                        <p class="lg:space-x-1"><i class="fa-regular fa-eye "></i> <span>${post.view_count}</span></p>
+                        <p class="lg:space-x-1"><i class="fa-regular fa-clock "></i> <span>${post.posted_time} min</span></p>
                     </div>
                     <div class="hover:bg-green-900 hover:transition-all hover:text-white flex justify-center items-center bg-green-400 rounded-full px-2 py-1">
                         <button class="" onclick="handleRead('${post.title.replace("'", "")}', ${post.comment_count})"><i class="fa-regular fa-envelope"></i></button>
