@@ -16,12 +16,16 @@ const displayPosts = posts => {
     posts.forEach(post => {
 
 
+
         const div = document.createElement("div")
         div.classList.add('flex', 'gap-5', 'lg:p-10', 'p-2', 'border-blue-500', 'border', 'rounded-3xl', 'bg-[#12132d0c],')
         div.innerHTML = `
         
             <div class="">
-                <div class="w-[50px] h-[50px] "><img class="rounded-full" src="${post.image}" alt=""></div>
+               <div class="w-[50px] h-[50px] relative">
+               <div class="w-[10px] h-[10px] bg-green-600 absolute left-10 top-1 rounded-full ${post.isActive ? '' : 'hidden'}"></div>
+                  <img class="rounded-full" src="${post.image}" alt="">
+               </div>
             </div>
             <div class="space-y-3">
                 <div class="flex gap-5 font-semibold">
@@ -44,8 +48,8 @@ const displayPosts = posts => {
                         <p class="space-x-2"><i class="fa-regular fa-eye "></i> <span>${post.view_count}</span></p>
                         <p class="space-x-2"><i class="fa-regular fa-clock "></i> <span>${post.posted_time} min</span></p>
                     </div>
-                    <div class="flex justify-center items-center bg-green-400 rounded-full px-2 py-1">
-                        <button onclick="handleRead('${post.title.replace("'", "")}', ${post.comment_count})"><i class="fa-regular fa-envelope"></i></button>
+                    <div class="hover:bg-green-900 hover:transition-all hover:text-white flex justify-center items-center bg-green-400 rounded-full px-2 py-1">
+                        <button class="" onclick="handleRead('${post.title.replace("'", "")}', ${post.comment_count})"><i class="fa-regular fa-envelope"></i></button>
                     </div>
                 </div>
             </div>
@@ -63,8 +67,7 @@ const displayPosts = posts => {
 let counter = 0;
 
 const handleRead = (title, commentCount) => {
-    console.log(title, commentCount);
-    counter ++
+    counter++
 
     const markRead = document.getElementById('mark-as-read');
     const clearDiv = document.getElementById('clear');
