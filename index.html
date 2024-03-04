@@ -66,8 +66,8 @@
                     and wp forum coffee mug!</div>
 
                 <div class="flex items-center justify-between p-2 lg:pl-7 rounded-full bg-[#fff]">
-                    <div><input class="outline-none" type="text" placeholder="Search here anything"></div>
-                    <div class="bg-[#797DFC] rounded-3xl py-2 px-7 font-medium text-white"><button>Search</button></div>
+                    <div><input id="search-field" class="outline-none" type="text" placeholder="Search here anything"></div>
+                    <div class="bg-[#797DFC] rounded-3xl py-2 px-7 font-medium text-white"><button onclick="handleSearch()">Search</button></div>
                 </div>
 
             </div>
@@ -111,10 +111,13 @@
                     features allow for a streamlined .</p>
             </div>
 
+            <div id="loading" class="mt-40 text-center hidden">
+                <span class="loading loading-bars loading-lg"></span>
+            </div>
 
             <div class="lg:flex gap-5 justify-between">
 
-                <div id="all-post" class="mt-10 space-y-5">
+                <div id="post-container" class="mt-10 space-y-5">
                     
                 </div>
 
@@ -132,10 +135,10 @@
                         </div>
     
                         <div id="mark-as-read" class="space-y-5">
-                            <div class="flex justify-between items-center bg-white p-4 rounded-2xl">
+                            <!-- <div class="flex justify-between items-center bg-white p-4 rounded-2xl">
                                 <p class="font-medium">10 Kids Unaware of Their <br> Halloween Costume</p>
                                 <p class="space-x-1 text-[#868585]"><i class="fa-regular fa-eye "></i> <span>1568</span></p>
-                            </div>
+                            </div> -->
                         </div>
     
                     </div>
