@@ -108,6 +108,7 @@ const handleSearch = () => {
     toggleLoadingSpinner(true);
     const searchField = document.getElementById('search-field')
     const searchText = searchField.value;
+    searchField.value = '';
 
     if (searchText) {
         loadPost(searchText);
@@ -129,10 +130,7 @@ const toggleLoadingSpinner = (isLoading) => {
 
     }
     else {
-
-        setTimeout(() => {
             loadingSpinner.classList.add('hidden');
-        }, 2000);
     }
 }
 
